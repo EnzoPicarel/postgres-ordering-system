@@ -56,7 +56,8 @@ The project is built to handle **complex business rules**, such as verifying del
 1. **Clone and Setup Environment**
    ```bash
    # Clone the repo
-   git clone https://github.com/EnzoPicarel/postgres-ordering-engine.git
+   git clone https://github.com/EnzoPicarel/postgres-ordering-system.git
+   cd postgres-ordering-system
    
    #Configure environment
    cp .env.example .env
@@ -85,10 +86,10 @@ You can interact directly with the running container to verify data integrity:
 
 ```bash
 # Check total orders
-docker exec -it restaurants_db psql -U postgres -d restaurants -c "SELECT COUNT(*) FROM commandes;"
+docker exec -it postgres-ordering-engine-db psql -U postgres -d restaurants -c "SELECT COUNT(*) FROM commandes;"
 
 # List restaurants with coordinates
-docker exec -it restaurants_db psql -U postgres -d restaurants -c "SELECT nom, ST_AsText(position) FROM restaurants;"
+docker exec -it postgres-ordering-engine-db psql -U postgres -d restaurants -c "SELECT nom, ST_AsText(position) FROM restaurants;"
 ```
 
 ## 👥 Authors
